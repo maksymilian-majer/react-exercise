@@ -2,8 +2,6 @@ const storeRef = "profile";
 const LOG_IN = "LOG_IN";
 const LOG_OUT = "LOG_OUT";
 
-const actions = {};
-
 const logIn = initials => ({
   type: LOG_IN,
   payload: { initials }
