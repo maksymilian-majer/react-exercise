@@ -14,7 +14,7 @@ class TopBar extends Component {
       <div style={{ float: "right", paddingRight: 20 }}>
         <Button
           style={{ backgroundColor: "blue", color: "white" }}
-          onClick={() => this.props.logIn('MM')}
+          onClick={() => this.props.logIn("MM")}
         >
           Login
         </Button>
@@ -28,7 +28,20 @@ class TopBar extends Component {
   renderLoggedIn() {
     return (
       <div style={{ float: "right", paddingRight: 20 }}>
-        <div>{this.props.initials}</div>
+        <div
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            background: "grey",
+            margin: 3,
+            lineHeight: '40px',
+            float: "left",
+            textAlign: 'center'
+          }}
+        >
+          {this.props.initials}
+        </div>
         <Button
           style={{ backgroundColor: "red", color: "white" }}
           onClick={this.props.logOut}
