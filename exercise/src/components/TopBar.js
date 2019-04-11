@@ -14,7 +14,7 @@ class TopBar extends Component {
       <div style={{ float: "right", paddingRight: 20 }}>
         <Button
           style={{ backgroundColor: "blue", color: "white" }}
-          onClick={() => this.props.logIn("MM")}
+          onClick={() => this.props.logIn('MM')}
         >
           Login
         </Button>
@@ -84,7 +84,7 @@ TopBar.propTypes = {
 
 const mapStateToProps = state => ({
   loggedIn: state.profile.loggedIn,
-  initials: state.profile.loggedIn
+  initials: state.profile.initials
 });
 
 const mapDispatchToProps = {
