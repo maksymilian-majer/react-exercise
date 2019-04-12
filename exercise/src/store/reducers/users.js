@@ -12,7 +12,8 @@ const mapUsers = list => {
     first: user.name.first,
     last: user.name.last,
     email: user.email,
-    phone: user.phone
+    phone: user.phone,
+    picture: user.picture.thumbnail
   }));
 };
 

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 import TopBar from "../components/TopBar";
+import { UserDetails } from "../components/UserDetails";
 
 export class User extends Component {
   render() {
@@ -10,7 +11,7 @@ export class User extends Component {
       <div className="App">
         <TopBar />
         <div className="container">
-          <div>{this.props.user.first}</div>
+          <UserDetails user={this.props.user} />
           <Link to="/users">{"< "}Back</Link>
         </div>
       </div>
