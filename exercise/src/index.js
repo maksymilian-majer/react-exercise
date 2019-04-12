@@ -9,6 +9,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
 import Landing from "./routes/Landing";
 import Home from "./routes/Home";
+import Users from "./routes/Users";
 
 ReactDOM.render(
   <Provider store={store}>
@@ -16,6 +17,7 @@ ReactDOM.render(
       <div>
         <Route exact path="/" component={Landing} />
         <Route path="/home" component={Home} />
+        <Route path="/users" component={Users} />
       </div>
     </BrowserRouter>
   </Provider>,

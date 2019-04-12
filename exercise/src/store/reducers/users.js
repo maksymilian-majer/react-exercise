@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
     case userActions.findAll.failure:
       return { ...state, loading: false, error: 'There was an error with the request' };
     case userActions.findAll.success:
-      return { ...state, loading: false, users: action.payload.data, error: null };
+      return { ...state, loading: false, users: action.payload.data.results, error: null };
     default:
       return state;
   }
