@@ -101,8 +101,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  logIn: profileActions.actions.logIn,
-  logOut: profileActions.actions.logOut
+  logIn: profileActions.logIn,
+  logOut: profileActions.logOut
 };
 
 export default withRouter(

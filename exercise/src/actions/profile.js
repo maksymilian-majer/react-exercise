@@ -11,18 +11,14 @@ const logOut = () => ({
   type: LOG_OUT
 });
 
-const actions = {
-  logIn,
-  logOut
-};
-
 const types = {
-  LOG_IN,
-  LOG_OUT
+  logIn: LOG_IN,
+  logOut: LOG_OUT
 };
 
 export default {
   storeRef,
-  actions,
-  types
+  types,
+  logIn,
+  logOut
 };

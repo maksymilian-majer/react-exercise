@@ -7,9 +7,9 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case profileActions.types.LOG_IN:
+    case profileActions.types.logIn:
       return { ...state, loggedIn: true, initials: action.payload.initials };
-    case profileActions.types.LOG_OUT:
+    case profileActions.types.logOut:
       return { ...state, loggedIn: false };
     default:
       return state;
