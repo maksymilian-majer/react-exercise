@@ -9,8 +9,10 @@ export class User extends Component {
     return (
       <div className="App">
         <TopBar />
-        <div>{this.props.user.first}</div>
-        <Link to="/users">{ '< ' }Back</Link>
+        <div className="container">
+          <div>{this.props.user.first}</div>
+          <Link to="/users">{"< "}Back</Link>
+        </div>
       </div>
     );
   }

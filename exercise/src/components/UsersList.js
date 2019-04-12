@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 
 export function UsersList({ users }) {
   return (
-    <ul>
-      {users.map(user => (
-        <li key={user.id}>
-          <Link to={`/users/${user.id}`}>
-            {user.first} {user.last}
-          </Link>
-          , {user.email}, {user.phone}
-        </li>
-      ))}
-    </ul>
+    <div className="container">
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            <Link to={`/users/${user.id}`}>
+              {user.first} {user.last}
+            </Link>
+            , {user.email}, {user.phone}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
