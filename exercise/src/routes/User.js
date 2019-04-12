@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import TopBar from "../components/TopBar";
 
@@ -10,6 +10,7 @@ export class User extends Component {
       <div className="App">
         <TopBar />
         <div>{this.props.user.first}</div>
+        <Link to="/users">{ '< ' }Back</Link>
       </div>
     );
   }

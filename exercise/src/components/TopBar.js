@@ -71,7 +71,7 @@ class TopBar extends Component {
             <img
               alt={"logo"}
               style={{ maxHeight: 40, flex: 1 }}
-              src="favicon-196x196.png"
+              src="/favicon-196x196.png"
             />
           </Link>
         </div>
