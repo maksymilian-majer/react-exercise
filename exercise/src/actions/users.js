@@ -8,7 +8,7 @@ const types = makeActionTypes(storeRef, allowed);
 
 const doFindAll = () => {
   return axios
-    .get("/")
+    .get("/?results=20")
     .then(response => ({ response }))
     .catch(error => ({ error }));
 };
