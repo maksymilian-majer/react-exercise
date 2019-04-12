@@ -8,7 +8,7 @@ const initialState = {
 
 const mapUsers = list => {
   return list.map(user => ({
-    id: user.id.value,
+    id: user.login.uuid,
     first: user.name.first,
     last: user.name.last,
     email: user.email,

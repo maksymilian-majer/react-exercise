@@ -76,7 +76,7 @@
         },
         "email": "rolf.hegdal@example.com",
         "login": {
-          "uuid": "c4168eac-84b8-46ea-b735-c9da9bfb97fd",
+          "uuid": "c4168eac-84b8-46ea-b735-c9da9bfb97fa",
           "username": "bluefrog786",
           "password": "ingrid",
           "salt": "GtRFz4NE",
@@ -128,7 +128,7 @@
         },
         "email": "rolf.hegdal@example.com",
         "login": {
-          "uuid": "c4168eac-84b8-46ea-b735-c9da9bfb97fd",
+          "uuid": "c4168eac-84b8-46ea-b735-c9da9bfb97fc",
           "username": "bluefrog786",
           "password": "ingrid",
           "salt": "GtRFz4NE",

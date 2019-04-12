@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
@@ -12,13 +12,27 @@ export class Users extends Component {
     this.props.findAll();
   }
 
+  renderLoader() {
+    return <Fragment>Loading..</Fragment>;
+  }
+
+  renderUsersList() {
+    return <UsersList users={this.props.users.list} />;
+  }
+
+  renderError() {
+    return <Fragment>Error: {this.props.users.error}</Fragment>;
+  }
+
   render() {
     return (
       <div className="App">
         <TopBar />
-        <UsersList
-          users={this.props.users.list}
-        />
+        {this.props.users.loading
+          ? this.renderLoader()
+          : this.props.users.error
+          ? this.renderError()
+          : this.renderUsersList()}
       </div>
     );
   }
