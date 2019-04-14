@@ -11,8 +11,7 @@ import UserIcon from "@material-ui/icons/SupervisedUserCircle";
 
 const styles = theme => ({
   root: {
-    width: "100%",
-    maxWidth: 360,
+    minWidth: 400,
     backgroundColor: theme.palette.background.paper
   },
   inline: {

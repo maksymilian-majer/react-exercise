@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import compose from "recompose/compose";
 import { Button, withStyles } from "@material-ui/core";
 
 import TopBar from "../components/TopBar";
-import { UserDetails } from "../components/UserDetails";
+import UserDetails from "../components/UserDetails";
 
 const styles = theme => ({
   button: {
@@ -13,18 +13,21 @@ const styles = theme => ({
   }
 });
 
-export function User({ user, classes }) {
-  return (
-    <div className="App">
-      <TopBar />
-      <div className="container">
-        <UserDetails user={user} />
-        <Button component={Link} to="/users" className={classes.button}>
-          {"< "}Back
-        </Button>
+export class User extends Component {
+  render() {
+    const { user, classes, history } = this.props;
+    return (
+      <div className="App">
+        <TopBar />
+        <div className="container">
+          <UserDetails user={user} />
+          <Button onClick={history.goBack} className={classes.button}>
+            {"< "}Back
+          </Button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 const mapStateToProps = ({ users }, { match }) => ({
@@ -32,6 +35,6 @@ const mapStateToProps = ({ users }, { match }) => ({
 });
 
 export default compose(
-  connect(mapStateToProps),
-  withStyles(styles)
+  withStyles(styles),
+  connect(mapStateToProps)
 )(withRouter(User));

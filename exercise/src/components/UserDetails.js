@@ -1,17 +1,40 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
-export function UserDetails({ user }) {
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  Avatar,
+  Typography,
+  withStyles
+} from "@material-ui/core";
+
+const styles = {
+  card: {
+    minWidth: 400
+  },
+};
+
+export function UserDetails({ user, classes }) {
   return (
-    <Fragment>
-      <div>
-        <img src={user.picture} alt="" />
-      </div>
-      <div>First name: {user.first}</div>
-      <div>Last name: {user.last}</div>
-      <div>Email: {user.email}</div>
-      <div>Phone: {user.phone}</div>
-    </Fragment>
+    <Card className={classes.card}>
+      <CardHeader
+        avatar={
+          <Avatar aria-label="Profile">
+            <img src={user.picture} alt="" />
+          </Avatar>
+        }
+        title={`${user.first} ${user.last}`}
+      />
+      <CardContent>
+        <Typography component="p">
+          Email: {user.email}
+          <br />
+          Phone: {user.phone}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -24,3 +47,5 @@ UserDetails.propTypes = {
     phone: PropTypes.string
   })
 };
+
+export default withStyles(styles)(UserDetails);

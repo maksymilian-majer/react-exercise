@@ -32,6 +32,15 @@ const styles = {
   },
   avatar: {
     marginRight: 10
+  },
+  title: {
+    color: "#fff",
+    textDecoration: "none"
+  },
+  logo: {
+    marginRight: 10,
+    maxHeight: 40,
+    flex: 1
   }
 };
 
@@ -72,7 +81,6 @@ class TopBar extends Component {
 
   render() {
     const classes = this.props.classes;
-    console.log("History", this.props.history.length);
     const backButton =
       this.props.history.location.pathname !== "/" ? (
         <IconButton
@@ -94,14 +102,14 @@ class TopBar extends Component {
               color="inherit"
               className={classes.flex}
             >
-              <Link to="/">
+              <Link to="/" className={classes.title}>
                 <img
                   alt={"logo"}
-                  style={{ maxHeight: 40, flex: 1 }}
+                  className={classes.logo}
                   src="/favicon-196x196.png"
                 />
+                Modus Create
               </Link>
-              Modus Create
             </Typography>
             {this.props.loggedIn
               ? this.renderLoggedIn()
