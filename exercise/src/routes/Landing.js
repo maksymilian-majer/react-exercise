@@ -16,32 +16,22 @@ export default class Landing extends Component {
             {' page currently has two components, "TopBar" and "HomeContent."'}
           </p>
           <p>
-            {
-              'There is a "Login" button in each.  Your first task is to implement '
-            }
+            {'There is a "Login" button in each.  Your first task is to implement '}
             {'the "Login" buttons so that clicking on either one logs you in.'}
           </p>
           <p>
             {"When "}
-            {
-              'logged in, both buttons should change to "Logout" and clicking on '
-            }
+            {'logged in, both buttons should change to "Logout" and clicking on '}
             {"either should revert you to logged out state. "}
             {
               "The TopBar Login button should change to YOUR initials (see example below) and the Signup button should change to Logout"
             }
           </p>
           <div style={{ textAlign: "center" }}>
-            <img
-              alt={"initials"}
-              style={{ maxHeight: 44 }}
-              src="topbar-example.png"
-            />
+            <img alt={"initials"} style={{ maxHeight: 44 }} src="topbar-example.png" />
           </div>
           <h1>Second Task</h1>
-          <p>
-            {'Create a route for a users list; name your component "UserList."'}
-          </p>
+          <p>{'Create a route for a users list; name your component "UserList."'}</p>
           <p>
             {
               "Use https://randomuser.me/ to get the 20 users and display them in a list on the page."
@@ -56,9 +46,7 @@ export default class Landing extends Component {
             {
               'the user detail route (screen); name your component "UserDatail" component. This user details page would be dynamic -  '
             }
-            {
-              "the url should contain the user id while navigating to the user detail page. "
-            }
+            {"the url should contain the user id while navigating to the user detail page. "}
           </p>
           <p>
             {
@@ -80,11 +68,7 @@ export default class Landing extends Component {
                 "You will be judged on your ability fo follow these instructions, as well as how well you effectively execute these tasks. "
               }
             </li>
-            <li>
-              {
-                "Take the time to polish your submission.  You want to impress us!"
-              }
-            </li>
+            <li>{"Take the time to polish your submission.  You want to impress us!"}</li>
           </ul>
         </div>
       </Fragment>

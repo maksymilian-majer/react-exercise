@@ -26,7 +26,13 @@ export function UsersList({ users, classes }) {
   return (
     <List className={classes.root}>
       {users.map(user => (
-        <ListItem alignItems="flex-start" key={user.id} component={Link} to={`/users/${user.id}`} button>
+        <ListItem
+          alignItems="flex-start"
+          key={user.id}
+          component={Link}
+          to={`/users/${user.id}`}
+          button
+        >
           <ListItemIcon>
             <UserIcon />
           </ListItemIcon>

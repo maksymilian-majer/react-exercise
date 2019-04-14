@@ -30,11 +30,7 @@ export function HomeContent({ logIn, logOut, loggedIn, classes }) {
       </Button>
       <br />
       {!loggedIn ? (
-        <Button
-          variant="contained"
-          className={classes.button}
-          onClick={() => logIn("MM")}
-        >
+        <Button variant="contained" className={classes.button} onClick={() => logIn("MM")}>
           Login
         </Button>
       ) : (

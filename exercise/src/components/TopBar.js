@@ -68,11 +68,7 @@ class TopBar extends Component {
         <Avatar className={this.props.classes.avatar}>
           <Typography variant="body1">{this.props.initials}</Typography>
         </Avatar>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={this.props.logOut}
-        >
+        <Button variant="contained" color="secondary" onClick={this.props.logOut}>
           Logout
         </Button>
       </Fragment>
@@ -97,23 +93,13 @@ class TopBar extends Component {
         <AppBar position="static">
           <Toolbar>
             {backButton}
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
+            <Typography variant="title" color="inherit" className={classes.flex}>
               <Link to="/" className={classes.title}>
-                <img
-                  alt={"logo"}
-                  className={classes.logo}
-                  src="/favicon-196x196.png"
-                />
+                <img alt={"logo"} className={classes.logo} src="/favicon-196x196.png" />
                 Modus Create
               </Link>
             </Typography>
-            {this.props.loggedIn
-              ? this.renderLoggedIn()
-              : this.renderLoggedOut()}
+            {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
           </Toolbar>
         </AppBar>
       </div>

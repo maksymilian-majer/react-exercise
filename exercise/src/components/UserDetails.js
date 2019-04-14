@@ -1,19 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  Avatar,
-  Typography,
-  withStyles
-} from "@material-ui/core";
+import { Card, CardHeader, CardContent, Avatar, Typography, withStyles } from "@material-ui/core";
 
 const styles = {
   card: {
     minWidth: 400
-  },
+  }
 };
 
 export function UserDetails({ user, classes }) {

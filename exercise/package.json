@@ -25,12 +25,34 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "server": "json-server --port 3001 --watch db.json"
+    "server": "json-server --port 3001 --watch db.json",
+    "precommit": "lint-staged",
+    "lint": "eslint ."
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,css,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "devDependencies": {
+    "babel-eslint": "9.x",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-config-react-app": "3.0.8",
     "eslint-plugin-class-property": "^1.1.0",
+    "eslint-plugin-flowtype": "2.x",
+    "eslint-plugin-import": "2.x",
     "eslint-plugin-jest": "^21.15.0",
-    "json-server": "*"
+    "eslint-plugin-jsx-a11y": "6.x",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.x",
+    "json-server": "*",
+    "lint-staged": "8.1.5"
   },
   "browserslist": [
     ">0.2%",

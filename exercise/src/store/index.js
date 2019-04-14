@@ -8,8 +8,4 @@ const allReducers = combineReducers(reducers);
 const initialState = {};
 const middleware = [thunk];
 
-export default createStore(
-  allReducers,
-  initialState,
-  compose(applyMiddleware(...middleware))
-);
+export default createStore(allReducers, initialState, compose(applyMiddleware(...middleware)));
