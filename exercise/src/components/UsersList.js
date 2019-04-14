@@ -2,20 +2,48 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export function UsersList({ users }) {
+import { withStyles } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import { ListItemIcon } from "@material-ui/core";
+import UserIcon from "@material-ui/icons/SupervisedUserCircle";
+
+const styles = theme => ({
+  root: {
+    width: "100%",
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper
+  },
+  inline: {
+    display: "inline"
+  },
+  container: {
+    padding: 20
+  }
+});
+
+export function UsersList({ users, classes }) {
   return (
-    <div className="container">
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>
-            <Link to={`/users/${user.id}`}>
-              {user.first} {user.last}
-            </Link>
-            , {user.email}, {user.phone}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <List className={classes.root}>
+      {users.map(user => (
+        <ListItem alignItems="flex-start" key={user.id} component={Link} to={`/users/${user.id}`} button>
+          <ListItemIcon>
+            <UserIcon />
+          </ListItemIcon>
+          <ListItemText
+            primary={`${user.first} ${user.last}`}
+            secondary={
+              <React.Fragment>
+                Email: {user.email}
+                <br />
+                Phone: {user.phone}
+              </React.Fragment>
+            }
+          />
+        </ListItem>
+      ))}
+    </List>
   );
 }
 
@@ -30,3 +58,5 @@ UsersList.propTypes = {
     })
   ).isRequired
 };
+
+export default withStyles(styles)(UsersList);
