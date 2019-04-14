@@ -24,7 +24,6 @@ export function HomeContent({ logIn, logOut, loggedIn, classes }) {
         component={Link}
         to="/users"
         className={classes.button}
-        onClick={() => logIn("MM")}
       >
         Users
       </Button>
