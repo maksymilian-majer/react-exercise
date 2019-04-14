@@ -1,27 +1,51 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import compose from "recompose/compose";
 import { withRouter } from "react-router-dom";
 
-import Button from "./Button";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import ArrowBack from "@material-ui/icons/ArrowBackIos";
 
 import profileActions from "../actions/profile";
+
+const styles = {
+  root: {
+    flexGrow: 1
+  },
+  flex: {
+    flex: 1
+  },
+  backButton: {
+    marginLeft: -12,
+    marginRight: 20
+  },
+  loginButton: {
+    marginRight: 10
+  }
+};
 
 class TopBar extends Component {
   renderLoggedOut() {
     return (
-      <div style={{ float: "right", paddingRight: 20 }}>
+      <Fragment>
         <Button
-          style={{ backgroundColor: "blue", color: "white" }}
+          variant="contained"
           onClick={() => this.props.logIn("MM")}
+          className={this.props.classes.loginButton}
         >
           Login
         </Button>
-        <Button style={{ backgroundColor: "red", color: "white" }}>
+        <Button variant="contained" color="secondary">
           Signup
         </Button>
-      </div>
+      </Fragment>
     );
   }
 
@@ -35,9 +59,9 @@ class TopBar extends Component {
             borderRadius: "50%",
             background: "grey",
             margin: 3,
-            lineHeight: '40px',
+            lineHeight: "40px",
             float: "left",
-            textAlign: 'center'
+            textAlign: "center"
           }}
         >
           {this.props.initials}
@@ -53,42 +77,46 @@ class TopBar extends Component {
   }
 
   render() {
-    return (
-      <header
-        style={{
-          height: 48,
-          width: "100%",
-          backgroundColor: "rgb(102,63,180)",
-          color: "white",
-          padding: "6px 10px",
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center"
-        }}
+    const classes = this.props.classes;
+    console.log('History', this.props.history.length);
+    const backButton = this.props.history.location.pathname !== '/' ? (
+      <IconButton
+        className={classes.backButton}
+        color="inherit"
+        aria-label="Back"
+        onClick={this.props.history.goBack}
       >
-        <div style={styles.logo}>
-          <Link to="/">
-            <img
-              alt={"logo"}
-              style={{ maxHeight: 40, flex: 1 }}
-              src="/favicon-196x196.png"
-            />
-          </Link>
-        </div>
-        <div>{"Modus Create"}</div>
-        <div style={{ float: "left", color: "white", flex: 1 }} />
-        {this.props.loggedIn ? this.renderLoggedIn() : this.renderLoggedOut()}
-      </header>
+        <ArrowBack />
+      </IconButton>
+    ) : null;
+    return (
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            {backButton}
+            <Typography
+              variant="title"
+              color="inherit"
+              className={classes.flex}
+            >
+              <Link to="/">
+                <img
+                  alt={"logo"}
+                  style={{ maxHeight: 40, flex: 1 }}
+                  src="/favicon-196x196.png"
+                />
+              </Link>
+              Modus Create
+            </Typography>
+            {this.props.loggedIn
+              ? this.renderLoggedIn()
+              : this.renderLoggedOut()}
+          </Toolbar>
+        </AppBar>
+      </div>
     );
   }
 }
-
-const styles = {
-  logo: {
-    float: "left",
-    margin: 8
-  }
-};
 
 TopBar.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
@@ -105,9 +133,10 @@ const mapDispatchToProps = {
   logOut: profileActions.logOut
 };
 
-export default withRouter(
+export default compose(
+  withStyles(styles),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(TopBar)
-);
+  )
+)(withRouter(TopBar));
