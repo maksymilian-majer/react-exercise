@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowBack from "@material-ui/icons/ArrowBackIos";
+import Avatar from "@material-ui/core/Avatar";
 
 import profileActions from "../actions/profile";
 
@@ -27,6 +28,9 @@ const styles = {
     marginRight: 20
   },
   loginButton: {
+    marginRight: 10
+  },
+  avatar: {
     marginRight: 10
   }
 };
@@ -51,44 +55,35 @@ class TopBar extends Component {
 
   renderLoggedIn() {
     return (
-      <div style={{ float: "right", paddingRight: 20 }}>
-        <div
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            background: "grey",
-            margin: 3,
-            lineHeight: "40px",
-            float: "left",
-            textAlign: "center"
-          }}
-        >
-          {this.props.initials}
-        </div>
+      <Fragment>
+        <Avatar className={this.props.classes.avatar}>
+          <Typography variant="body1">{this.props.initials}</Typography>
+        </Avatar>
         <Button
-          style={{ backgroundColor: "red", color: "white" }}
+          variant="contained"
+          color="secondary"
           onClick={this.props.logOut}
         >
           Logout
         </Button>
-      </div>
+      </Fragment>
     );
   }
 
   render() {
     const classes = this.props.classes;
-    console.log('History', this.props.history.length);
-    const backButton = this.props.history.location.pathname !== '/' ? (
-      <IconButton
-        className={classes.backButton}
-        color="inherit"
-        aria-label="Back"
-        onClick={this.props.history.goBack}
-      >
-        <ArrowBack />
-      </IconButton>
-    ) : null;
+    console.log("History", this.props.history.length);
+    const backButton =
+      this.props.history.location.pathname !== "/" ? (
+        <IconButton
+          className={classes.backButton}
+          color="inherit"
+          aria-label="Back"
+          onClick={this.props.history.goBack}
+        >
+          <ArrowBack />
+        </IconButton>
+      ) : null;
     return (
       <div className={classes.root}>
         <AppBar position="static">

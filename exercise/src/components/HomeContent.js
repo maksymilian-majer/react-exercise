@@ -1,25 +1,49 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import compose from "recompose/compose";
 
-import Button from "./Button";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 import profileActions from "../actions/profile";
 
-export class HomeContent extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Link to="/users">Users</Link>
-        {!this.props.loggedIn ? (
-          <Button onClick={() => this.props.logIn("MM")}>Login</Button>
-        ) : (
-          <Button onClick={() => this.props.logOut()}>Logout</Button>
-        )}
-      </div>
-    );
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit
   }
+});
+
+export function HomeContent({ logIn, logOut, loggedIn, classes }) {
+  return (
+    <div className="container">
+      <Button
+        variant="contained"
+        color="primary"
+        component={Link}
+        to="/users"
+        className={classes.button}
+        onClick={() => logIn("MM")}
+      >
+        Users
+      </Button>
+      <br />
+      {!loggedIn ? (
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={() => logIn("MM")}
+        >
+          Login
+        </Button>
+      ) : (
+        <Button variant="contained" className={classes.button} onClick={logOut}>
+          Logout
+        </Button>
+      )}
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({
@@ -31,9 +55,10 @@ const mapDispatchToProps = {
   logOut: profileActions.logOut
 };
 
-export default withRouter(
+export default compose(
+  withStyles(styles),
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(HomeContent)
-);
+  )
+)(withRouter(HomeContent));
