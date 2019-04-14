@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`(Component) Top Bar should render correctly when logged in 1`] = `
+<div
+  className="root"
+>
+  <WithStyles(AppBar)
+    position="static"
+  >
+    <WithStyles(Toolbar)>
+      <WithStyles(Typography)
+        color="inherit"
+        variant="title"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <img
+            alt="logo"
+            src="/favicon-196x196.png"
+          />
+          Modus Create
+        </Link>
+      </WithStyles(Typography)>
+      <WithStyles(Avatar)>
+        <WithStyles(Typography)
+          variant="body1"
+        >
+          AB
+        </WithStyles(Typography)>
+      </WithStyles(Avatar)>
+      <WithStyles(Button)
+        color="secondary"
+        variant="contained"
+      >
+        Logout
+      </WithStyles(Button)>
+    </WithStyles(Toolbar)>
+  </WithStyles(AppBar)>
+</div>
+`;
+
+exports[`(Component) Top Bar should render correctly when logged out 1`] = `
+<div
+  className="root"
+>
+  <WithStyles(AppBar)
+    position="static"
+  >
+    <WithStyles(Toolbar)>
+      <WithStyles(Typography)
+        color="inherit"
+        variant="title"
+      >
+        <Link
+          replace={false}
+          to="/"
+        >
+          <img
+            alt="logo"
+            src="/favicon-196x196.png"
+          />
+          Modus Create
+        </Link>
+      </WithStyles(Typography)>
+      <WithStyles(Button)
+        className="login"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Login
+      </WithStyles(Button)>
+      <WithStyles(Button)
+        color="secondary"
+        variant="contained"
+      >
+        Signup
+      </WithStyles(Button)>
+    </WithStyles(Toolbar)>
+  </WithStyles(AppBar)>
+</div>
+`;

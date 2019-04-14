@@ -44,7 +44,7 @@ const styles = {
   }
 };
 
-class TopBar extends Component {
+export class TopBar extends Component {
   renderLoggedOut() {
     return (
       <Fragment>
@@ -109,7 +109,11 @@ class TopBar extends Component {
 
 TopBar.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
-  initials: PropTypes.string
+  initials: PropTypes.string,
+  logIn: PropTypes.func,
+  logOut: PropTypes.func,
+  classes: PropTypes.object,
+  history: PropTypes.object
 };
 
 const mapStateToProps = state => ({
